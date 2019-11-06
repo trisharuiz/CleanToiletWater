@@ -1,4 +1,4 @@
-# EGS_1060C_fall19
+# EGS_1006C_fall19
 #
 
 ## Installing Code Composer SimpleLink module
