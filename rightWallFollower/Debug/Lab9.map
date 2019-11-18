@@ -1,0 +1,540 @@
+******************************************************************************
+                  TI ARM Linker PC v18.12.2                    
+******************************************************************************
+>> Linked Mon Nov 18 12:40:55 2019
+
+OUTPUT FILE NAME:   <Lab9.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00001695
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  MAIN                  00000000   00040000  000019e0  0003e620  R  X
+  INFO                  00200000   00004000  00000000  00004000  R  X
+  SRAM_CODE             01000000   00010000  0000027f  0000fd81  RW X
+  SRAM_DATA             20000000   00010000  0000027f  0000fd81  RW  
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000019e0   000019e0    r-x
+  00000000    00000000    000000e4   000000e4    r-- .intvecs
+  000000e4    000000e4    00001850   00001850    r-x .text
+  00001934    00001934    00000044   00000044    r-- .const
+  00001978    00001978    00000068   00000068    r-- .cinit
+20000000    20000000    0000007f   00000000    rw-
+  20000000    20000000    00000074   00000000    rw- .data
+  20000074    20000074    0000000b   00000000    rw- .bss
+2000fe00    2000fe00    00000200   00000000    rw-
+  2000fe00    2000fe00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000e4     
+                  00000000    000000e4     startup_msp432p401r_ccs.obj (.intvecs:retain)
+
+.text      0    000000e4    00001850     
+                  000000e4    00000744     main.obj (.text:main)
+                  00000828    0000017c     Clock.obj (.text:Clock_Init48MHz)
+                  000009a4    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.asm.obj (.text)
+                  00000aa0    000000d8     HAL_OPT3001.obj (.text:OPT3001_getLux)
+                  00000b78    000000bc     main.obj (.text:Initialize_System)
+                  00000c34    000000b4     Encoder.obj (.text:encoder_init)
+                  00000ce8    000000b0     Bump.obj (.text:Bump_Read)
+                  00000d98    000000b0     Motor.obj (.text:motor_init)
+                  00000e48    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00000ee4    00000098     Encoder.obj (.text:PORT5_IRQHandler)
+                  00000f7c    0000008c     HAL_I2C.obj (.text:I2C_read16)
+                  00001008    0000008c     Button.obj (.text:button_init)
+                  00001094    00000088     msp432p4xx_driverlib.lib : gpio.o (.text:GPIO_setAsPeripheralModuleFunctionOutputPin)
+                  0000111c    00000078     system_msp432p401r.obj (.text:SystemInit)
+                  00001194    0000006e     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_tos_t2.asm.obj (.text)
+                  00001202    00000002     startup_msp432p401r_ccs.obj (.text:Default_Handler)
+                  00001204    0000006c     msp432p4xx_driverlib.lib : i2c.o (.text:I2C_masterSendMultiByteFinish)
+                  00001270    00000068                              : i2c.o (.text:I2C_masterSendMultiByteStart)
+                  000012d8    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00001340    00000062     msp432p4xx_driverlib.lib : i2c.o (.text:I2C_initMaster)
+                  000013a2    00000002     --HOLE-- [fill = 0]
+                  000013a4    00000060     Motor.obj (.text:set_left_motor_pwm)
+                  00001404    00000060     Motor.obj (.text:set_right_motor_pwm)
+                  00001464    0000005c     Bump.obj (.text:Bump_Init)
+                  000014c0    00000058     Reflectance.obj (.text:Reflectance_Init)
+                  00001518    00000048     HAL_I2C.obj (.text:I2C_write16)
+                  00001560    00000044     Button.obj (.text:PORT1_IRQHandler)
+                  000015a4    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  000015e8    00000040     msp432p4xx_driverlib.lib : i2c.o (.text:I2C_masterReceiveMultiByteFinish)
+                  00001628    00000038                              : i2c.o (.text:I2C_masterSendMultiByteStop)
+                  00001660    00000034                              : i2c.o (.text:I2C_masterSendMultiByteNext)
+                  00001694    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  000016c8    00000030     Motor.obj (.text:set_left_motor_direction)
+                  000016f8    00000030     Motor.obj (.text:set_right_motor_direction)
+                  00001728    0000002c     Clock.obj (.text:Clock_Delay1ms)
+                  00001754    00000020     HAL_I2C.obj (.text:I2C_init)
+                  00001774    0000001c     msp432p4xx_driverlib.lib : i2c.o (.text:I2C_setMode)
+                  00001790    0000001c     HAL_I2C.obj (.text:I2C_setslave)
+                  000017ac    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  000017c8    0000001a     msp432p4xx_driverlib.lib : i2c.o (.text:I2C_masterReceiveStart)
+                  000017e2    00000018                              : i2c.o (.text:I2C_getInterruptStatus)
+                  000017fa    00000002     --HOLE-- [fill = 0]
+                  000017fc    00000018                              : i2c.o (.text:I2C_isBusBusy)
+                  00001814    00000018     HAL_I2C.obj (.text:Init_I2C_GPIO)
+                  0000182c    00000018     Button.obj (.text:button_S1_pressed)
+                  00001844    00000018     Button.obj (.text:button_S2_pressed)
+                  0000185c    00000016     msp432p4xx_driverlib.lib : i2c.o (.text:I2C_clearInterruptFlag)
+                  00001872    00000016                              : i2c.o (.text:I2C_disableModule)
+                  00001888    00000016                              : i2c.o (.text:I2C_enableModule)
+                  0000189e    00000014                              : i2c.o (.text:I2C_masterReceiveMultiByteNext)
+                  000018b2    00000014                              : i2c.o (.text:I2C_setSlaveAddress)
+                  000018c6    00000014     HAL_OPT3001.obj (.text:OPT3001_init)
+                  000018da    00000002     --HOLE-- [fill = 0]
+                  000018dc    00000010     main.obj (.text:SysTick_Handler)
+                  000018ec    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  000018fa    0000000e     Clock.obj (.text:delay)
+                  00001908    0000000c     startup_msp432p401r_ccs.obj (.text:Reset_Handler)
+                  00001914    0000000c     Encoder.obj (.text:get_left_motor_count)
+                  00001920    0000000c     Encoder.obj (.text:get_right_motor_count)
+                  0000192c    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00001930    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00001934    00000044     
+                  00001934    00000030     msp432p4xx_driverlib.lib : gpio.o (.const:GPIO_PORT_TO_BASE)
+                  00001964    00000014     HAL_I2C.obj (.const:i2cConfig)
+
+.cinit     0    00001978    00000068     
+                  00001978    0000003e     (.cinit..data.load) [load image, compression = lzss]
+                  000019b6    00000002     --HOLE-- [fill = 0]
+                  000019b8    0000000c     (__TI_handler_table)
+                  000019c4    00000004     --HOLE-- [fill = 0]
+                  000019c8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000019d0    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+.data      0    20000000    00000074     UNINITIALIZED
+                  20000000    00000021     main.obj (.data)
+                  20000021    00000002     Button.obj (.data)
+                  20000023    00000001     --HOLE--
+                  20000024    00000018     Clock.obj (.data)
+                  2000003c    00000018     Motor.obj (.data:left_motor_pwm_config)
+                  20000054    00000018     Motor.obj (.data:right_motor_pwm_config)
+                  2000006c    00000008     Encoder.obj (.data)
+
+.bss       0    20000074    0000000b     UNINITIALIZED
+                  20000074    00000004     (.common:lux)
+                  20000078    00000001     (.common:bump_data)
+                  20000079    00000001     (.common:bump_data0)
+                  2000007a    00000001     (.common:bump_data1)
+                  2000007b    00000001     (.common:bump_data2)
+                  2000007c    00000001     (.common:bump_data3)
+                  2000007d    00000001     (.common:bump_data4)
+                  2000007e    00000001     (.common:bump_data5)
+
+.stack     0    2000fe00    00000200     UNINITIALIZED
+                  2000fe00    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  2000fe04    000001fc     --HOLE--
+
+MODULE SUMMARY
+
+       Module                        code   ro data   rw data
+       ------                        ----   -------   -------
+    .\
+       main.obj                      2064   0         88     
+       system_msp432p401r.obj        120    0         0      
+    +--+-----------------------------+------+---------+---------+
+       Total:                        2184   0         88     
+                                                             
+    .\Library\
+       Motor.obj                     464    0         96     
+       Clock.obj                     438    0         48     
+       Encoder.obj                   356    0         16     
+       HAL_I2C.obj                   296    20        0      
+       Bump.obj                      268    0         0      
+       Button.obj                    256    0         4      
+       HAL_OPT3001.obj               236    0         0      
+       Reflectance.obj               88     0         0      
+    +--+-----------------------------+------+---------+---------+
+       Total:                        2402   20        164    
+                                                             
+    .\ccs\
+       startup_msp432p401r_ccs.obj   14     228       0      
+    +--+-----------------------------+------+---------+---------+
+       Total:                        14     228       0      
+                                                             
+    C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib
+       i2c.o                         690    0         0      
+       gpio.o                        136    48        0      
+    +--+-----------------------------+------+---------+---------+
+       Total:                        826    48        0      
+                                                             
+    C:\ti\ccs910\ccs\tools\compiler\ti-cgt-arm_18.12.2.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       fd_mul_t2.asm.obj             252    0         0      
+       memcpy_t2.asm.obj             156    0         0      
+       fd_tos_t2.asm.obj             110    0         0      
+       copy_decompress_lzss.c.obj    104    0         0      
+       autoinit.c.obj                68     0         0      
+       boot_cortex_m.c.obj           52     0         0      
+       copy_zero_init.c.obj          28     0         0      
+       copy_decompress_none.c.obj    14     0         0      
+       exit.c.obj                    4      0         0      
+       pre_init.c.obj                4      0         0      
+    +--+-----------------------------+------+---------+---------+
+       Total:                        792    0         0      
+                                                             
+       Stack:                        0      0         1024   
+       Linker Generated:             0      98        0      
+    +--+-----------------------------+------+---------+---------+
+       Grand Total:                  6218   394       1276   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000019d0 records: 2, size/record: 8, table size: 16
+	.data: load addr=00001978, load size=0000003e bytes, run addr=20000000, run size=00000074 bytes, compression=lzss
+	.bss: load addr=000019c8, load size=00000008 bytes, run addr=20000074, run size=0000000b bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000019b8 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                       
+-------   ----                                       
+00001203  ADC14_IRQHandler                           
+00001203  AES256_IRQHandler                          
+00001465  Bump_Init                                  
+00000ce9  Bump_Read                                  
+00001203  BusFault_Handler                           
+00001931  C$$EXIT                                    
+00001203  COMP_E0_IRQHandler                         
+00001203  COMP_E1_IRQHandler                         
+2000002c  CPMwait                                    
+00001203  CS_IRQHandler                              
+20000024  ClockFrequency                             
+00001729  Clock_Delay1ms                             
+00000829  Clock_Init48MHz                            
+20000038  Crystalstable                              
+00001203  DMA_ERR_IRQHandler                         
+00001203  DMA_INT0_IRQHandler                        
+00001203  DMA_INT1_IRQHandler                        
+00001203  DMA_INT2_IRQHandler                        
+00001203  DMA_INT3_IRQHandler                        
+00001203  DebugMon_Handler                           
+00001203  Default_Handler                            
+00001203  EUSCIA0_IRQHandler                         
+00001203  EUSCIA1_IRQHandler                         
+00001203  EUSCIA2_IRQHandler                         
+00001203  EUSCIA3_IRQHandler                         
+00001203  EUSCIB0_IRQHandler                         
+00001203  EUSCIB1_IRQHandler                         
+00001203  EUSCIB2_IRQHandler                         
+00001203  EUSCIB3_IRQHandler                         
+00001203  FLCTL_IRQHandler                           
+00001203  FPU_IRQHandler                             
+00001095  GPIO_setAsPeripheralModuleFunctionOutputPin
+00001203  HardFault_Handler                          
+0000185d  I2C_clearInterruptFlag                     
+00001873  I2C_disableModule                          
+00001889  I2C_enableModule                           
+000017e3  I2C_getInterruptStatus                     
+00001755  I2C_init                                   
+00001341  I2C_initMaster                             
+000017fd  I2C_isBusBusy                              
+000015e9  I2C_masterReceiveMultiByteFinish           
+0000189f  I2C_masterReceiveMultiByteNext             
+000017c9  I2C_masterReceiveStart                     
+00001205  I2C_masterSendMultiByteFinish              
+00001661  I2C_masterSendMultiByteNext                
+00001271  I2C_masterSendMultiByteStart               
+00001629  I2C_masterSendMultiByteStop                
+00000f7d  I2C_read16                                 
+00001775  I2C_setMode                                
+000018b3  I2C_setSlaveAddress                        
+00001791  I2C_setslave                               
+00001519  I2C_write16                                
+20000034  IFlags                                     
+00001815  Init_I2C_GPIO                              
+00000b79  Initialize_System                          
+00001203  MemManage_Handler                          
+00001203  NMI_Handler                                
+00000aa1  OPT3001_getLux                             
+000018c7  OPT3001_init                               
+00001203  PCM_IRQHandler                             
+00001561  PORT1_IRQHandler                           
+00001561  PORT1_IRQHandler                           
+00001203  PORT2_IRQHandler                           
+00001203  PORT3_IRQHandler                           
+00001203  PORT4_IRQHandler                           
+00000ee5  PORT5_IRQHandler                           
+00000ee5  PORT5_IRQHandler                           
+00001203  PORT6_IRQHandler                           
+00001203  PSS_IRQHandler                             
+00001203  PendSV_Handler                             
+20000030  Postwait                                   
+20000028  Prewait                                    
+00001203  RTC_C_IRQHandler                           
+000014c1  Reflectance_Init                           
+00001909  Reset_Handler                              
+00001203  SVC_Handler                                
+000018dd  SysTick_Handler                            
+000018dd  SysTick_Handler                            
+0000111d  SystemInit                                 
+00001203  T32_INT1_IRQHandler                        
+00001203  T32_INT2_IRQHandler                        
+00001203  T32_INTC_IRQHandler                        
+00001203  TA0_0_IRQHandler                           
+00001203  TA0_N_IRQHandler                           
+00001203  TA1_0_IRQHandler                           
+00001203  TA1_N_IRQHandler                           
+00001203  TA2_0_IRQHandler                           
+00001203  TA2_N_IRQHandler                           
+00001203  TA3_0_IRQHandler                           
+00001203  TA3_N_IRQHandler                           
+00001203  UsageFault_Handler                         
+4000480c  WDTCTL_SYM                                 
+00001203  WDT_A_IRQHandler                           
+20010000  __STACK_END                                
+00000200  __STACK_SIZE                               
+000019d0  __TI_CINIT_Base                            
+000019e0  __TI_CINIT_Limit                           
+000019b8  __TI_Handler_Table_Base                    
+000019c4  __TI_Handler_Table_Limit                   
+000015a5  __TI_auto_init_nobinit_nopinit             
+000012d9  __TI_decompress_lzss                       
+000018ed  __TI_decompress_none                       
+ffffffff  __TI_pprof_out_hndl                        
+ffffffff  __TI_prof_data_size                        
+ffffffff  __TI_prof_data_start                       
+00000000  __TI_static_base__                         
+000017ad  __TI_zero_init_nomemset                    
+00001195  __aeabi_d2f                                
+000009a5  __aeabi_dmul                               
+00000e49  __aeabi_memcpy                             
+00000e49  __aeabi_memcpy4                            
+00000e49  __aeabi_memcpy8                            
+ffffffff  __binit__                                  
+ffffffff  __c_args__                                 
+UNDEFED   __mpu_init                                 
+2000fe00  __stack                                    
+00001695  _c_int00_noargs                            
+UNDEFED   _system_post_cinit                         
+0000192d  _system_pre_init                           
+00001931  abort                                      
+20000010  backwards                                  
+ffffffff  binit                                      
+20000078  bump_data                                  
+20000079  bump_data0                                 
+2000007a  bump_data1                                 
+2000007b  bump_data2                                 
+2000007c  bump_data3                                 
+2000007d  bump_data4                                 
+2000007e  bump_data5                                 
+0000182d  button_S1_pressed                          
+20000021  button_S1_pressed_flag                     
+00001845  button_S2_pressed                          
+20000022  button_S2_pressed_flag                     
+00001009  button_init                                
+000018fb  delay                                      
+20000008  drift                                      
+00000c35  encoder_init                               
+00001915  get_left_motor_count                       
+00001921  get_right_motor_count                      
+20000004  i                                          
+00001964  i2cConfig                                  
+00000000  interruptVectors                           
+2000006c  left_motor_count                           
+2000003c  left_motor_pwm_config                      
+20000074  lux                                        
+000000e5  main                                       
+00000e49  memcpy                                     
+00000d99  motor_init                                 
+20000070  right_motor_count                          
+20000054  right_motor_pwm_config                     
+000016c9  set_left_motor_direction                   
+000013a5  set_left_motor_pwm                         
+000016f9  set_right_motor_direction                  
+00001405  set_right_motor_pwm                        
+20000018  speed                                      
+20000020  state                                      
+20000000  tick                                       
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                       
+-------   ----                                       
+00000000  __TI_static_base__                         
+00000000  interruptVectors                           
+000000e5  main                                       
+00000200  __STACK_SIZE                               
+00000829  Clock_Init48MHz                            
+000009a5  __aeabi_dmul                               
+00000aa1  OPT3001_getLux                             
+00000b79  Initialize_System                          
+00000c35  encoder_init                               
+00000ce9  Bump_Read                                  
+00000d99  motor_init                                 
+00000e49  __aeabi_memcpy                             
+00000e49  __aeabi_memcpy4                            
+00000e49  __aeabi_memcpy8                            
+00000e49  memcpy                                     
+00000ee5  PORT5_IRQHandler                           
+00000ee5  PORT5_IRQHandler                           
+00000f7d  I2C_read16                                 
+00001009  button_init                                
+00001095  GPIO_setAsPeripheralModuleFunctionOutputPin
+0000111d  SystemInit                                 
+00001195  __aeabi_d2f                                
+00001203  ADC14_IRQHandler                           
+00001203  AES256_IRQHandler                          
+00001203  BusFault_Handler                           
+00001203  COMP_E0_IRQHandler                         
+00001203  COMP_E1_IRQHandler                         
+00001203  CS_IRQHandler                              
+00001203  DMA_ERR_IRQHandler                         
+00001203  DMA_INT0_IRQHandler                        
+00001203  DMA_INT1_IRQHandler                        
+00001203  DMA_INT2_IRQHandler                        
+00001203  DMA_INT3_IRQHandler                        
+00001203  DebugMon_Handler                           
+00001203  Default_Handler                            
+00001203  EUSCIA0_IRQHandler                         
+00001203  EUSCIA1_IRQHandler                         
+00001203  EUSCIA2_IRQHandler                         
+00001203  EUSCIA3_IRQHandler                         
+00001203  EUSCIB0_IRQHandler                         
+00001203  EUSCIB1_IRQHandler                         
+00001203  EUSCIB2_IRQHandler                         
+00001203  EUSCIB3_IRQHandler                         
+00001203  FLCTL_IRQHandler                           
+00001203  FPU_IRQHandler                             
+00001203  HardFault_Handler                          
+00001203  MemManage_Handler                          
+00001203  NMI_Handler                                
+00001203  PCM_IRQHandler                             
+00001203  PORT2_IRQHandler                           
+00001203  PORT3_IRQHandler                           
+00001203  PORT4_IRQHandler                           
+00001203  PORT6_IRQHandler                           
+00001203  PSS_IRQHandler                             
+00001203  PendSV_Handler                             
+00001203  RTC_C_IRQHandler                           
+00001203  SVC_Handler                                
+00001203  T32_INT1_IRQHandler                        
+00001203  T32_INT2_IRQHandler                        
+00001203  T32_INTC_IRQHandler                        
+00001203  TA0_0_IRQHandler                           
+00001203  TA0_N_IRQHandler                           
+00001203  TA1_0_IRQHandler                           
+00001203  TA1_N_IRQHandler                           
+00001203  TA2_0_IRQHandler                           
+00001203  TA2_N_IRQHandler                           
+00001203  TA3_0_IRQHandler                           
+00001203  TA3_N_IRQHandler                           
+00001203  UsageFault_Handler                         
+00001203  WDT_A_IRQHandler                           
+00001205  I2C_masterSendMultiByteFinish              
+00001271  I2C_masterSendMultiByteStart               
+000012d9  __TI_decompress_lzss                       
+00001341  I2C_initMaster                             
+000013a5  set_left_motor_pwm                         
+00001405  set_right_motor_pwm                        
+00001465  Bump_Init                                  
+000014c1  Reflectance_Init                           
+00001519  I2C_write16                                
+00001561  PORT1_IRQHandler                           
+00001561  PORT1_IRQHandler                           
+000015a5  __TI_auto_init_nobinit_nopinit             
+000015e9  I2C_masterReceiveMultiByteFinish           
+00001629  I2C_masterSendMultiByteStop                
+00001661  I2C_masterSendMultiByteNext                
+00001695  _c_int00_noargs                            
+000016c9  set_left_motor_direction                   
+000016f9  set_right_motor_direction                  
+00001729  Clock_Delay1ms                             
+00001755  I2C_init                                   
+00001775  I2C_setMode                                
+00001791  I2C_setslave                               
+000017ad  __TI_zero_init_nomemset                    
+000017c9  I2C_masterReceiveStart                     
+000017e3  I2C_getInterruptStatus                     
+000017fd  I2C_isBusBusy                              
+00001815  Init_I2C_GPIO                              
+0000182d  button_S1_pressed                          
+00001845  button_S2_pressed                          
+0000185d  I2C_clearInterruptFlag                     
+00001873  I2C_disableModule                          
+00001889  I2C_enableModule                           
+0000189f  I2C_masterReceiveMultiByteNext             
+000018b3  I2C_setSlaveAddress                        
+000018c7  OPT3001_init                               
+000018dd  SysTick_Handler                            
+000018dd  SysTick_Handler                            
+000018ed  __TI_decompress_none                       
+000018fb  delay                                      
+00001909  Reset_Handler                              
+00001915  get_left_motor_count                       
+00001921  get_right_motor_count                      
+0000192d  _system_pre_init                           
+00001931  C$$EXIT                                    
+00001931  abort                                      
+00001964  i2cConfig                                  
+000019b8  __TI_Handler_Table_Base                    
+000019c4  __TI_Handler_Table_Limit                   
+000019d0  __TI_CINIT_Base                            
+000019e0  __TI_CINIT_Limit                           
+20000000  tick                                       
+20000004  i                                          
+20000008  drift                                      
+20000010  backwards                                  
+20000018  speed                                      
+20000020  state                                      
+20000021  button_S1_pressed_flag                     
+20000022  button_S2_pressed_flag                     
+20000024  ClockFrequency                             
+20000028  Prewait                                    
+2000002c  CPMwait                                    
+20000030  Postwait                                   
+20000034  IFlags                                     
+20000038  Crystalstable                              
+2000003c  left_motor_pwm_config                      
+20000054  right_motor_pwm_config                     
+2000006c  left_motor_count                           
+20000070  right_motor_count                          
+20000074  lux                                        
+20000078  bump_data                                  
+20000079  bump_data0                                 
+2000007a  bump_data1                                 
+2000007b  bump_data2                                 
+2000007c  bump_data3                                 
+2000007d  bump_data4                                 
+2000007e  bump_data5                                 
+2000fe00  __stack                                    
+20010000  __STACK_END                                
+4000480c  WDTCTL_SYM                                 
+ffffffff  __TI_pprof_out_hndl                        
+ffffffff  __TI_prof_data_size                        
+ffffffff  __TI_prof_data_start                       
+ffffffff  __binit__                                  
+ffffffff  __c_args__                                 
+ffffffff  binit                                      
+UNDEFED   __mpu_init                                 
+UNDEFED   _system_post_cinit                         
+
+[157 symbols]
